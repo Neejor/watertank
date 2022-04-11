@@ -1,12 +1,56 @@
 import logo from "./logo.svg";
-import { useState } from "react";
-import "./App.css";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import "./App.scss";
 import { Navigate, useNavigate } from "react-router-dom";
 
 function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
+  const centerVariant = {
+    initial: {
+      opacity: 0,
+    },
+    enter: {
+      opacity: 1,
+      transition: {
+        delay: 1.1,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+    exit: {
+      opacity: 0,
+      transition: {
+        delay: 0.5,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+  };
+
+  const divVariant = {
+    initial: {
+      "--tranOr": "0px",
+      "--marLeft": "0px",
+    },
+    enter: {
+      "--tranOr": "-300px 50%",
+      "--marLeft": "300px",
+      transition: {
+        delay: 0.5,
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+    exit: {
+      "--tranOr": "0px",
+      "--marLeft": "0px",
+      transition: {
+        ease: [0.43, 0.13, 0.23, 0.96],
+      },
+    },
+  };
+
   const user1 = {
     email: "neejorchakma@gmail.com",
     password: "neejor",
@@ -29,8 +73,28 @@ function LoginPage() {
 
   return (
     <div class="back">
-      <div class="div-center">
-        <div class="content">
+      <div class="div-center container">
+        <motion.div
+          variants={divVariant}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          className="top"
+        ></motion.div>
+        <motion.div
+          variants={divVariant}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          className="bottom"
+        ></motion.div>
+        <motion.div
+          variants={centerVariant}
+          initial="initial"
+          animate="enter"
+          exit="exit"
+          class="content center"
+        >
           <h3>Login</h3>
           <hr />
           <form>
@@ -69,7 +133,7 @@ function LoginPage() {
               Reset Password
             </button>
           </form>
-        </div>
+        </motion.div>
       </div>
     </div>
   );

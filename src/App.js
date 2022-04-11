@@ -4,14 +4,18 @@ import "./App.css";
 import { Route, BrowserRouter, Routes } from "react-router-dom";
 import Threshold from "./thresholdchange";
 import LoginPage from "./loginpage";
+import { AnimatePresence } from "framer-motion";
+
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<LoginPage />} />
-          <Route path="/thresholdchange" element={<Threshold />} />
-        </Routes>
+        <AnimatePresence exitBeforeEnter>
+          <Routes>
+            <Route path="/" element={<LoginPage />} />
+            <Route path="/thresholdchange" element={<Threshold />} />
+          </Routes>
+        </AnimatePresence>
       </BrowserRouter>
     </div>
   );

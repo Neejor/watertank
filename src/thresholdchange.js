@@ -13,9 +13,11 @@ function Threshold() {
   const [guests, setGuests] = useState(0);
 
   return (
-    <div class="back">
+    <div class="back" style={{ backgroundColor: "#fff" }}>
       <div class="div-center">
-        <div class="content">
+        <div className="topThresh"></div>
+        <div className="bottomThresh"></div>
+        <div class="content centerThresh">
           <h3>Welcome, {name}</h3>
           <hr />
           <form>
