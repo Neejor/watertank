@@ -43,7 +43,7 @@ function Threshold() {
             </div>
             <button
               type="button"
-              class="btn btn-link"
+              class="btn btn-primary"
               onClick={() => {
                 axios
                   .post("https://centraltank.herokuapp.com/sendValues", {
