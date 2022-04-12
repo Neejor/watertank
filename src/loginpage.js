@@ -31,7 +31,7 @@ function LoginPage() {
 
   const divVariant = {
     initial: {
-      "--tranOr": "0px",
+      "--tranOr": "0px 50%",
       "--marLeft": "0px",
     },
     enter: {
@@ -40,13 +40,17 @@ function LoginPage() {
       transition: {
         delay: 0.5,
         ease: [0.43, 0.13, 0.23, 0.96],
+        duration: 0.5,
       },
     },
     exit: {
-      "--tranOr": "0px",
+      // opacity: 0,
+      "--tranOr": "0px 50%",
       "--marLeft": "0px",
       transition: {
-        ease: [0.43, 0.13, 0.23, 0.96],
+        delay: 0.5,
+        // ease: [0.43, 0.13, 0.23, 0.96],
+        duration: 0.5,
       },
     },
   };

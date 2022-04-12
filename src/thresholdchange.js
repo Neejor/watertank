@@ -13,7 +13,14 @@ function Threshold() {
   const [guests, setGuests] = useState(0);
 
   return (
-    <div class="back" style={{ backgroundColor: "#fff" }}>
+    <div
+      class="back"
+      style={{
+        backgroundColor: "#fff",
+        maxHeight: "100vh",
+        overflow: "hidden",
+      }}
+    >
       <div class="div-center">
         <div className="topThresh"></div>
         <div className="bottomThresh"></div>
