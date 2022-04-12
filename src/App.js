@@ -1,21 +1,29 @@
 import logo from "./logo.svg";
 import { useState } from "react";
 import "./App.css";
-import { Route, BrowserRouter, Routes } from "react-router-dom";
+import { Route, BrowserRouter, Routes, useLocation } from "react-router-dom";
 import Threshold from "./thresholdchange";
 import LoginPage from "./loginpage";
 import { AnimatePresence } from "framer-motion";
+
+const MyRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence exitBeforeEnter>
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/thresholdchange" element={<Threshold />} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <AnimatePresence exitBeforeEnter>
-          <Routes>
-            <Route path="/" element={<LoginPage />} />
-            <Route path="/thresholdchange" element={<Threshold />} />
-          </Routes>
-        </AnimatePresence>
+        <MyRoutes />
       </BrowserRouter>
     </div>
   );
